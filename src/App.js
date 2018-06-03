@@ -3,33 +3,35 @@ import React from 'react';
 // import './App.css';
 // import './es6'
 import {Button} from 'antd-mobile'
-import {createStore} from 'redux'
+// import {createStore} from 'redux'
+import { connect } from 'react-redux'
+import { addGun, removeGun, addGunAsync } from './index.redux'
 
-function counter(state = 0, action) {
-  switch (action.type) {
-    case '加机关枪':
-      return state +1
-    case '减机关枪':
-      return state - 1
-    default:
-      return 10
-  }
-}
-const store = createStore(counter)
-const init = store.getState()
-console.log(init)
-function listener(){
-  const current = store.getState()
-  console.log(`现在有机关枪${current}把`)
-}
-
-store.subscribe(listener)
-
-store.dispatch({type: '加机关枪'})
-store.dispatch({type: '加机关枪'})
-store.dispatch({type: '加机关枪'})
-store.dispatch({type: '加机关枪'})
-console.log(store.getState())
+// function counter(state = 0, action) {
+//   switch (action.type) {
+//     case '加机关枪':
+//       return state +1
+//     case '减机关枪':
+//       return state - 1
+//     default:
+//       return 10
+//   }
+// }
+// const store = createStore(counter)
+// const init = store.getState()
+// console.log(init)
+// function listener(){
+//   const current = store.getState()
+//   console.log(`现在有机关枪${current}把`)
+// }
+//
+// store.subscribe(listener)
+//
+// store.dispatch({type: '加机关枪'})
+// store.dispatch({type: '加机关枪'})
+// store.dispatch({type: '加机关枪'})
+// store.dispatch({type: '加机关枪'})
+// console.log(store.getState())
 
 class App extends React.Component {
   constructor(props) {
@@ -64,6 +66,11 @@ class App extends React.Component {
     //     </p>
     //   </div>
     // );
+    // const store = this.props.store
+    // const num = store.getState()
+    const num = this.props.num
+    const addGun = this.props.addGun
+    const removeGun = this.props.removeGun
     let boss = '李云龙'
     return (
       <div>
@@ -75,10 +82,23 @@ class App extends React.Component {
         })}
         <Button onClick={() =>this.add()}>新增</Button>
         <Button onClick={this.add}>新增</Button>
+        <div>
+          <h1>现有机枪{num}把</h1>
+          {/*<button onClick={()=> store.dispatch(addGun())}>加枪</button>*/}
+          {/*<button onClick={()=> store.dispatch(removeGun())}>上交</button>*/}
+          <button onClick={addGun}>加枪</button>
+          <button onClick={removeGun}>上交</button>
+          <button onClick={addGunAsync}>推迟</button>
+        </div>
       </div>
     )
   }
 }
+const mapStatetoProps = (state)=>{
+  return {num: state}
+}
+const actionCreators = {addGun, removeGun, addGunAsync}
+App = connect(mapStatetoProps, actionCreators)(App)
 
 function Funttt(props) {
   return <h1>this is function . props = {props.title}</h1>
