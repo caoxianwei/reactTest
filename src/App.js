@@ -2,6 +2,7 @@ import React from 'react';
 // import logo from './logo.svg';
 // import './App.css';
 // import './es6'
+import {Button} from 'antd-mobile'
 
 class App extends React.Component {
   constructor(props) {
@@ -45,8 +46,8 @@ class App extends React.Component {
         {this.state.solders.map(item => {
           return <li key={item}>{item}</li>
         })}
-        <button onClick={() =>this.add()}>新增</button>
-        <button onClick={this.add}>新增</button>
+        <Button onClick={() =>this.add()}>新增</Button>
+        <Button onClick={this.add}>新增</Button>
       </div>
     )
   }
