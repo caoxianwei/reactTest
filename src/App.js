@@ -68,9 +68,9 @@ class App extends React.Component {
     // );
     // const store = this.props.store
     // const num = store.getState()
-    const num = this.props.num
-    const addGun = this.props.addGun
-    const removeGun = this.props.removeGun
+    // const num = this.props.num
+    // const addGun = this.props.addGun
+    // const removeGun = this.props.removeGun
     let boss = '李云龙'
     return (
       <div>
@@ -83,12 +83,12 @@ class App extends React.Component {
         <Button onClick={() =>this.add()}>新增</Button>
         <Button onClick={this.add}>新增</Button>
         <div>
-          <h1>现有机枪{num}把</h1>
+          <h1>现有机枪{this.props.num}把</h1>
           {/*<button onClick={()=> store.dispatch(addGun())}>加枪</button>*/}
           {/*<button onClick={()=> store.dispatch(removeGun())}>上交</button>*/}
-          <button onClick={addGun}>加枪</button>
-          <button onClick={removeGun}>上交</button>
-          <button onClick={addGunAsync}>推迟</button>
+          <button onClick={this.props.addGun}>加枪</button>
+          <button onClick={this.props.removeGun}>上交</button>
+          <button onClick={this.props.addGunAsync}>推迟</button>
         </div>
       </div>
     )
