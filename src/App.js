@@ -82,7 +82,7 @@ class App extends React.Component {
     // const num = this.props.num
     // const addGun = this.props.addGun
     // const removeGun = this.props.removeGun
-    let boss = '李云龙'
+    let boss = 'title :name'
     return (
       <div>
         <h1>sunday test{boss}</h1>
