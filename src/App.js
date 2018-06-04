@@ -33,6 +33,17 @@ import { addGun, removeGun, addGunAsync } from './index.redux'
 // store.dispatch({type: '加机关枪'})
 // console.log(store.getState())
 
+// const mapStatetoProps = (state)=>{
+//   return {num: state}
+// }
+// const actionCreators = {addGun, removeGun, addGunAsync}
+// App = connect(mapStatetoProps, actionCreators)(App)
+// mapStatetoProps, actionCreators
+@connect(
+  state=>({num: state}),
+  {addGun, removeGun, addGunAsync}
+)
+
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -94,11 +105,6 @@ class App extends React.Component {
     )
   }
 }
-const mapStatetoProps = (state)=>{
-  return {num: state}
-}
-const actionCreators = {addGun, removeGun, addGunAsync}
-App = connect(mapStatetoProps, actionCreators)(App)
 
 function Funttt(props) {
   return <h1>this is function . props = {props.title}</h1>

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {createStore, applyMiddleware, compose} from 'redux'
 import './index.css';
-import 'antd-mobile/dist/antd-mobile.css';
+// import 'antd-mobile/dist/antd-mobile.css';
 import App from './App';
 // import {counter, addGun, removeGun} from "./index.redux";
 import { counter } from './index.redux'
