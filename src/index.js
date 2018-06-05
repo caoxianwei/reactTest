@@ -3,22 +3,24 @@ import ReactDOM from 'react-dom';
 import {createStore, applyMiddleware, compose} from 'redux'
 import {
   BrowserRouter,
-  Link,
+  // Link,
   Route,
   Redirect,
   Switch} from 'react-router-dom'
+import './config'
 // import './index.css';
 // import 'antd-mobile/dist/antd-mobile.css';
 // import App from './App';
 // import {counter, addGun, removeGun} from "./index.redux";
-import { counter } from './index.redux'
+// import { counter } from './index.redux'
+import reducers from './reducer'
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux';
 // import registerServiceWorker from './registerServiceWorker';
 import Auth from './Auth'
 import Dashboard from './Dashboard'
 
-const store = createStore(counter, compose(
+const store = createStore(reducers, compose(
   applyMiddleware(thunk),
   window.devToolsExtension ? window.devToolsExtension() : f => f
 ))

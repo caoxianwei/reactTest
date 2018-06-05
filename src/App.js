@@ -40,7 +40,9 @@ import { addGun, removeGun, addGunAsync } from './index.redux'
 // App = connect(mapStatetoProps, actionCreators)(App)
 // mapStatetoProps, actionCreators
 @connect(
-  state=>({num: state}),
+  // 你要state什么属性放到props里
+  state=>({num:state.counter}),
+  // state=>({num: state}),
   {addGun, removeGun, addGunAsync}
 )
 
@@ -58,12 +60,12 @@ class App extends React.Component {
     console.log('this is componentDIdMount')
   }
   // add(){
-  add= () =>{
-    console.log('this add data')
-    this.setState({
-      solders: [...this.state.solders, '新表哥'+Math.random(10)]
-    })
-  }
+  // add= () =>{
+  //   console.log('this add data')
+  //   this.setState({
+  //     solders: [...this.state.solders, '新表哥'+Math.random(10)]
+  //   })
+  // }
   render() {
     console.log('this is render')
     // return (
